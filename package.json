@@ -1,0 +1,24 @@
+{
+  "name": "live-server-starter",
+  "version": "1.0.0",
+  "description": "A simple environment for front-end sass dev practice",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass-chokidar ./sass -o ./css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/trooperandz/live_server_starter.git"
+  },
+  "author": "MH",
+  "license": "ISC",
+  "homepage": "https://github.com/trooperandz/live_server_starter#readme",
+  "dependencies": {
+    "live-server": "^1.2.0",
+    "node-sass-chokidar": "^1.3.4"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.4.1",
+    "node-sass": "^4.7.2"
+  }
+}
