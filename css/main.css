@@ -312,7 +312,10 @@ a {
   background-color: #EAEDF1;
   color: #394263; }
   .main__cards {
-    display: flex; }
+    display: block;
+    column-count: 2;
+    column-gap: 20px;
+    margin: 20px; }
 
 .main-header {
   position: relative;
@@ -322,7 +325,8 @@ a {
   color: #FFF;
   background-size: cover;
   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1609106/lake-shadow-water.jpg");
-  background-image: url("../../img/lake-shadow-water.jpg"); }
+  background-image: url("../../img/lake-shadow-water.jpg");
+  margin-bottom: 20px; }
   .main-header__intro-wrapper {
     display: flex;
     flex: 1;
@@ -358,7 +362,7 @@ a {
   grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
   grid-auto-rows: 94px;
   grid-gap: 30px;
-  padding: 20px; }
+  margin: 20px; }
 
 .overviewCard {
   display: flex;
@@ -405,8 +409,9 @@ a {
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 20px;
-  padding: 5px 20px 20px; }
+  background-color: #fff;
+  margin-bottom: 20px;
+  -webkit-column-break-inside: avoid; }
   .card__header {
     display: flex;
     align-items: center;
@@ -475,6 +480,8 @@ a {
     color: #FFF;
     background-color: #1BBAE1;
     z-index: 1; }
+  .card__row:nth-child(even) .card__icon {
+    background-color: #e74c3c; }
   .card__time {
     display: flex;
     flex: 1;
@@ -541,7 +548,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 15px 0;
+  margin: 15px 0 0;
   flex-direction: column; }
   .document__img {
     width: 105px;
@@ -556,10 +563,6 @@ a {
     font-size: 10px; }
 
 .chart-wrapper {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  margin: 5px 20px 20px;
   background-color: #FFF;
   height: max-content; }
 

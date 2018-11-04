@@ -44,13 +44,16 @@ function setSidenavListeners() {
 function renderChart() {
   const ctx = document.getElementById('chart-finance').getContext('2d');
 
+  // Set fixed height for chart
+  ctx.canvas.parentNode.style.height = '200px';
+
   const financeChart = new Chart(ctx, {
       type: 'bar',
       data: {
-          labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
           datasets: [{
               label: 'Spending per month',
-              data: [1150, 1000, 1675, 2100, 1340, 1500],
+              data: [1150, 1000, 1675, 2100, 1340, 1500, 2350, 1835, 1350, 1900],
               backgroundColor: [
                   'rgba(27,186,225,0.2)',
                   'rgba(27,186,225,0.2)',
@@ -58,12 +61,10 @@ function renderChart() {
                   'rgba(27,186,225,0.2)',
                   'rgba(27,186,225,0.2)',
                   'rgba(27,186,225,0.2)',
-                  // 'rgba(75, 192, 192, 0.2)',
-                  // 'rgba(75, 192, 192, 0.2)',
-                  // 'rgba(75, 192, 192, 0.2)',
-                  // 'rgba(75, 192, 192, 0.2)',
-                  // 'rgba(75, 192, 192, 0.2)',
-                  // 'rgba(75, 192, 192, 0.2)',
+                  'rgba(27,186,225,0.2)',
+                  'rgba(27,186,225,0.2)',
+                  'rgba(27,186,225,0.2)',
+                  'rgba(27,186,225,0.2)',
               ],
               borderColor: [
                   'rgba(27,186,225)',
@@ -72,12 +73,10 @@ function renderChart() {
                   'rgba(27,186,225)',
                   'rgba(27,186,225)',
                   'rgba(27,186,225)',
-                  // 'rgba(75, 192, 192, 1)',
-                  // 'rgba(75, 192, 192, 1)',
-                  // 'rgba(75, 192, 192, 1)',
-                  // 'rgba(75, 192, 192, 1)',
-                  // 'rgba(75, 192, 192, 1)',
-                  // 'rgba(75, 192, 192, 1)',
+                  'rgba(27,186,225)',
+                  'rgba(27,186,225)',
+                  'rgba(27,186,225)',
+                  'rgba(27,186,225)',
               ],
               borderWidth: 1
           }]
@@ -89,7 +88,8 @@ function renderChart() {
                       beginAtZero:true
                   }
               }]
-          }
+          },
+          maintainAspectRatio: false,
       }
   });
 }
