@@ -9,12 +9,15 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" type="image/png" href="#">
 
-    <title></title>
+    <title>CSS Grid Dashboard</title>
   </head>
   <body>
     <div class="grid">
       <nav class="header">
-        <div class="header__search">Search...</div>
+        <div class="header__search">
+          <i class="fas fa-bars"></i>
+          <input class="header__input" placeholder="Search..." />
+        </div>
         <div class="header__avatar">
           <div class="dropdown">
             <ul class="dropdown__list">
@@ -37,6 +40,7 @@
 
       <aside class="sidenav">
         <div class="sidenav__brand">
+          <i class="fas fa-feather-alt sidenav__brand-icon"></i>
           <a class="sidenav__brand-link" href="#">Ux<span class="text-light">Pro</span></a>
         </div>
         <div class="sidenav__profile">
@@ -46,13 +50,74 @@
         <div class="row row--align-v-center row--align-h-center">
           <ul class="navList">
             <li class="navList__heading">documents<i class="far fa-file-alt"></i></li>
-            <li class="navList__subheading">insurance</li>
-            <li class="navList__subheading">travel</li>
-            <li class="navList__subheading">taxes</li>
+              <li>
+              <div class="navList__subheading row row--align-v-center">
+                <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+                <span class="navList__subheading-title">insurance</span>
+              </div>
+              <ul class="subList subList--hidden">
+                <li class="subList__item">medical</li>
+                <li class="subList__item">vision</li>
+                <li class="subList__item">dental</li>
+              </ul>
+            </li>
+            <li>
+              <div class="navList__subheading row row--align-v-center">
+                <span class="navList__subheading-icon"><i class="fas fa-plane-departure"></i></span>
+                <span class="navList__subheading-title">travel</span>
+              </div>
+              <ul class="subList subList--hidden">
+                <li class="subList__item">domestic</li>
+                <li class="subList__item">foreign</li>
+                <li class="subList__item">misc</li>
+              </ul>
+            </li>
+            <li>
+              <div class="navList__subheading row row--align-v-center">
+                <span class="navList__subheading-icon"><i class="far fa-angry"></i></span>
+                <span class="navList__subheading-title">taxes</span>
+              </div>
+              <ul class="subList subList--hidden">
+                <li class="subList__item">current</li>
+                <li class="subList__item">archives</li>
+              </ul>
+            </li>
+
             <li class="navList__heading">messages<i class="far fa-envelope"></i></li>
-            <li class="navList__subheading">unread</li>
-            <li class="navList__subheading">flagged</li>
-            <li class="navList__subheading">archives</li>
+            <li>
+              <div class="navList__subheading row row--align-v-center">
+                <span class="navList__subheading-icon"><i class="fas fa-envelope"></i></span>
+                <span class="navList__subheading-title">inbox</span>
+              </div>
+              <ul class="subList subList--hidden">
+                <li class="subList__item">primary</li>
+                <li class="subList__item">social</li>
+                <li class="subList__item">promotional</li>
+              </ul>
+            </li>
+            <li>
+              <div class="navList__subheading row row--align-v-center">
+                <span class="navList__subheading-icon"><i class="fas fa-eye"></i></span>
+                <span class="navList__subheading-title">unread</span>
+              </div>
+              <ul class="subList subList--hidden">
+                <li class="subList__item">primary</li>
+                <li class="subList__item">social</li>
+                <li class="subList__item">promotional</li>
+              </ul>
+            </li>
+             <li>
+              <div class="navList__subheading row row--align-v-center">
+                <span class="navList__subheading-icon"><i class="fas fa-book-open"></i></span>
+                <span class="navList__subheading-title">archives</span>
+              </div>
+              <ul class="subList subList--hidden">
+                <li class="subList__item">primary</li>
+                <li class="subList__item">social</li>
+                <li class="subList__item">promotional</li>
+              </ul>
+            </li>
+
             <li class="navList__heading">photo album<i class="far fa-image"></i></li>
             <li>
               <div class="navList__subheading row row--align-v-center">
@@ -87,6 +152,7 @@
                 <li class="subList__item">internships</li>
               </ul>
             </li>
+
             <li class="navList__heading">statistics<i class="fas fa-chart-bar"></i></li>
             <li>
               <div class="navList__subheading row row--align-v-center">
@@ -266,32 +332,34 @@
                 <div class="settings__block"><i class="fas fa-cog"></i></div>
               </div>
             </div>
-            <div class="documents">
-              <div class="document">
-                <div class="document__img"></div>
-                <div class="document__title">tesla-patents</div>
-                <div class="document__date">07/16/2018</div>
-              </div>
-              <div class="document">
-                <div class="document__img"></div>
-                <div class="document__title">yearly-budget</div>
-                <div class="document__date">09/04/2018</div>
-              </div>
-              <div class="document">
-                <div class="document__img"></div>
-                <div class="document__title">top-ten-movies</div>
-                <div class="document__date">10/10/2018</div>
-              </div>
-              <div class="document">
-                <div class="document__img"></div>
-                <div class="document__title">trip-itinerary</div>
-                <div class="document__date">11/01/2018</div>
+            <div class="card">
+              <div class="documents">
+                <div class="document">
+                  <div class="document__img"></div>
+                  <div class="document__title">tesla-patents</div>
+                  <div class="document__date">07/16/2018</div>
+                </div>
+                <div class="document">
+                  <div class="document__img"></div>
+                  <div class="document__title">yearly-budget</div>
+                  <div class="document__date">09/04/2018</div>
+                </div>
+                <div class="document">
+                  <div class="document__img"></div>
+                  <div class="document__title">top-movies</div>
+                  <div class="document__date">10/10/2018</div>
+                </div>
+                <div class="document">
+                  <div class="document__img"></div>
+                  <div class="document__title">trip-itinerary</div>
+                  <div class="document__date">11/01/2018</div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="chart-wrapper">
+          <div class="card card--finance">
             <div class="card__header">
-              <div class="card__header-title text-light">Recent <strong>Documents</strong>
+              <div class="card__header-title text-light">Monthly <strong>Spending</strong>
                 <a href="#" class="card__header-link text-bold">View All</a>
               </div>
               <div class="settings">
@@ -299,18 +367,21 @@
                 <div class="settings__block"><i class="fas fa-cog"></i></div>
               </div>
             </div>
-            <div>
-              <canvas id="chart-finance" width="400" height="400"></canvas>
-            </div>
+            <div id="chartdiv"></div>
           </div>
         </div> <!-- /.main-cards -->
       </main>
 
-      <footer class="footer"></footer>
+      <footer class="footer">
+        <p><span class="footer__copyright">&copy;</span> 2018 MTH</p>
+        <p>Crafted with <i class="fas fa-heart footer__icon"></i> by <span class="footer__signature">Matt H</span></p>
+      </footer>
     </div>
 
     <script src="js/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
     <script src="js/scripts.js"></script>
   </body>
 </html>
