@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" type="image/png" href="#">
+
+    <style>
+      .grid1 {
+        /*width: 100%;*/
+        display: grid;
+        /*grid-template-rows: 1fr;*/
+        /*grid-template-columns: 200px 1fr;*/
+        /*grid-template-areas:*/
+         /*"space chart";*/
+      }
+
+      .flex {
+        /*grid-area: chart;*/
+        display: flex;
+        flex: 1;
+        /*width: 80%;*/
+        /*height: 700px;*/
+      }
+
+      .flex2 {
+        /*grid-area: space;*/
+        /*display: flex;*/
+        /*flex: 1;*/
+      }
+    </style>
+
+    <title></title>
+  </head>
+  <body>
+    <div class="grid1">
+      <!-- <div class="card__header">
+        <div class="card__header-title text-light">Monthly <strong>Spending</strong>
+          <a href="#" class="card__header-link text-bold">View All</a>
+        </div>
+        <div class="settings">
+          <div class="settings__block"><i class="fas fa-edit"></i></div>
+          <div class="settings__block"><i class="fas fa-cog"></i></div>
+        </div>
+      </div> -->
+      <div class="flex">
+        <canvas id="chart-finance"></canvas>
+      </div>
+
+     <!--  <div class="flex2">
+        <p>I am flex</p>
+      </div> -->
+
+    </div>
+
+    <script src="js/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+    <script src="js/scripts.js"></script>
+  </body>
+</html>

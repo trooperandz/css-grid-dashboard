@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+  <style>
+    .row {
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+
+    .wrapper {
+      column-count: 3;
+      -webkit-column-gap: 20px;
+      column-gap: 20px;
+      /*width: 100%;*/
+      position: relative;
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem;
+      /*float: left;*/
+    }
+
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      -webkit-column-break-inside: avoid;
+      margin-bottom: 20px;
+      border: 1px solid #c8cbcd;
+      border-radius: 4px;
+    }
+
+    .box--1 {
+      height: 200px;
+    }
+    .box--2 {
+      height: 400px;
+    }
+    .box--3 {
+      height: 350px;
+    }
+    .box--4 {
+      height: 450px;
+    }
+    .box--5 {
+      height: 320px;
+    }
+    .box--6 {
+      height: 340px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="row">
+    <div class="wrapper">
+      <div class="box box--1">Hey</div>
+      <div class="box box--2">Hey</div>
+      <div class="box box--3">Hey</div>
+      <div class="box box--4">Hey</div>
+      <div class="box box--5">Hey</div>
+      <div class="box box--6">Hey</div>
+    </div>
+  </div>
+</body>
+</html>
