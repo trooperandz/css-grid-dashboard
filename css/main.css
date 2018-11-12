@@ -1,86 +1,4 @@
 html, body {
-  font-family: "Open Sans", sans-serif;
-  box-sizing: border-box; }
-
-.row {
-  display: flex; }
-  .row--align-v-center {
-    align-items: center; }
-  .row--align-h-center {
-    justify-content: center; }
-
-.navList {
-  width: 240px;
-  padding: 0;
-  margin: 0;
-  background-color: #394263;
-  list-style-type: none; }
-  .navList__heading {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 16px 3px;
-    color: rgba(255, 255, 255, 0.5);
-    text-transform: uppercase;
-    font-size: 15px; }
-  .navList__subheading {
-    position: relative;
-    padding: 10px 30px;
-    color: #fff;
-    font-size: 16px;
-    text-transform: capitalize; }
-    .navList__subheading-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      color: rgba(255, 255, 255, 0.5);
-      width: 12px; }
-    .navList__subheading-title {
-      margin: 0 15px; }
-    .navList__subheading:after {
-      position: absolute;
-      content: "";
-      height: 6px;
-      width: 6px;
-      top: 17px;
-      right: 25px;
-      border-left: 1px solid rgba(255, 255, 255, 0.5);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-      transform: rotate(225deg);
-      transition: all .2s; }
-    .navList__subheading:hover {
-      background-color: #303753;
-      cursor: pointer; }
-    .navList__subheading--open {
-      background-color: #303753; }
-      .navList__subheading--open:after {
-        transform: rotate(315deg); }
-  .navList .subList {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    background-color: #262c43;
-    visibility: visible;
-    overflow: hidden;
-    max-height: 200px;
-    transition: all .35s; }
-    .navList .subList__item {
-      padding: 8px;
-      text-transform: capitalize;
-      padding: 8px 30px;
-      color: #D3D3D3; }
-      .navList .subList__item:first-child {
-        padding-top: 15px; }
-      .navList .subList__item:hover {
-        background-color: rgba(255, 255, 255, 0.2);
-        cursor: pointer; }
-    .navList .subList--hidden {
-      visibility: hidden;
-      max-height: 0; }
-
-html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -102,24 +20,34 @@ a {
   .row--align-h-center {
     justify-content: center; }
 
-/*.grid {
+.grid {
+  position: relative;
   display: grid;
-  grid-template-columns: 240px calc(100% - 240px); // Charts responsiveness won't work with fr units
-  grid-template-rows: $height-header 1fr 40px;
-  grid-template-areas:
-    'sidenav header'
-    'sidenav main'
-    'sidenav footer';
+  grid-template-columns: 100%;
+  grid-template-rows: 50px 1fr 50px;
+  grid-template-areas: 'header' 'main' 'footer';
   height: 100vh;
-}*/
+  overflow-x: hidden; }
+  .grid--noscroll {
+    overflow-y: hidden; }
+
 .header {
   grid-area: header;
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: #F9FAFC; }
+  .header__menu {
+    position: fixed;
+    padding: 13px;
+    left: 12px;
+    background-color: #DADAE3;
+    border-radius: 50%;
+    z-index: 1; }
+    .header__menu:hover {
+      cursor: pointer; }
   .header__search {
-    margin: 0 20px;
+    margin-left: 55px;
     font-size: 20px;
     color: #777; }
   .header__input {
@@ -140,8 +68,8 @@ a {
     border: 2px solid rgba(255, 255, 255, 0.2);
     position: relative;
     margin: 0 26px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     cursor: pointer; }
     .header__avatar:after {
       position: absolute;
@@ -199,12 +127,19 @@ a {
     transform: translateY(0); }
 
 .sidenav {
+  position: fixed;
   grid-area: sidenav;
   height: 100%;
   overflow-y: auto;
   background-color: #394263;
-  color: #FFF; }
+  color: #FFF;
+  width: 240px;
+  transform: translateX(-245px);
+  transition: all .6s ease-in-out;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  z-index: 2; }
   .sidenav__brand {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 0 16px;
@@ -214,6 +149,13 @@ a {
       margin-top: 2px;
       font-size: 14px;
       color: rgba(255, 255, 255, 0.5); }
+    .sidenav__brand-close {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      visibility: visible;
+      color: rgba(255, 255, 255, 0.5);
+      cursor: pointer; }
     .sidenav__brand-link {
       font-size: 18px;
       font-weight: bold;
@@ -252,6 +194,8 @@ a {
     list-style-type: none;
     margin: 0;
     padding: 10px 0 0; }
+  .sidenav--active {
+    transform: translateX(0); }
 
 .navList {
   width: 240px;
@@ -351,7 +295,7 @@ a {
     align-items: center;
     justify-content: space-between;
     height: 160px;
-    padding: 0 30px;
+    padding: 12px 30px;
     background: rgba(255, 255, 255, 0.12);
     font-size: 26px;
     letter-spacing: 1px; }
@@ -377,7 +321,8 @@ a {
       margin-bottom: 2px;
       font-size: 32px; }
     .quickview__item-description {
-      font-size: 16px; }
+      font-size: 16px;
+      text-align: center; }
 
 .main-overview {
   display: grid;
@@ -448,7 +393,8 @@ a {
     .card__header-link {
       font-size: 16px;
       color: #1BBAE1;
-      letter-spacing: normal; }
+      letter-spacing: normal;
+      display: inline-block; }
   .card__main {
     position: relative;
     padding-right: 20px;
@@ -610,15 +556,30 @@ a {
     color: #e74c3c; }
   .footer__signature {
     color: #1BBAE1;
-    cursor: pointer; }
+    cursor: pointer;
+    font-weight: bold; }
 
 @media only screen and (min-width: 46.875em) {
   .grid {
     display: grid;
     grid-template-columns: 240px calc(100% - 240px);
-    grid-template-rows: 50px 1fr 40px;
+    grid-template-rows: 50px 1fr 50px;
     grid-template-areas: 'sidenav header' 'sidenav main' 'sidenav footer';
-    height: 100vh; } }
+    height: 100vh; }
+  .sidenav {
+    position: relative;
+    transform: translateX(0); }
+    .sidenav__brand-close {
+      visibility: hidden; }
+  .main-header__intro-wrapper {
+    padding: 0 30px; }
+  .header__menu {
+    display: none; }
+  .header__search {
+    margin-left: 20px; }
+  .header__avatar {
+    width: 40px;
+    height: 40px; } }
 
 @media only screen and (min-width: 65.625em) {
   .main__cards {

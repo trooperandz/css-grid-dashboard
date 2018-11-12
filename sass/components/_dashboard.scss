@@ -4,6 +4,7 @@ $color-white: #FFF; // card bg
 $color-athens-gray: #EAEDF1; // content bg
 $color-catskill-white: #F9FAFC; // top nav bg
 $color-abbey: #777; // gray text
+$color-mischka: #DADAE3; // light gray for menu icon
 $color-java: #1BBAE1; // blue text
 $color-mine-shaft: #333; // main section header bg
 $color-zest: #e67e22; // document icon bg
@@ -14,6 +15,8 @@ $color-transparent: rgba(255, 255, 255, .5);
 $color-alto: #D3D3D3;
 
 $height-header: 50px;
+$height-footer: 50px;
+$width-sidenav: 240px;
 
 @mixin profile-avatar {
   background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1609106/headshot.png");
@@ -62,16 +65,22 @@ a {
 }
 
 // Establish dashboard css grid layout
-/*.grid {
+.grid {
+  position: relative;
   display: grid;
-  grid-template-columns: 240px calc(100% - 240px); // Charts responsiveness won't work with fr units
-  grid-template-rows: $height-header 1fr 40px;
+  grid-template-columns: 100%; // Charts responsiveness won't work with fr units
+  grid-template-rows: $height-header 1fr $height-footer;
   grid-template-areas:
-    'sidenav header'
-    'sidenav main'
-    'sidenav footer';
+    'header'
+    'main'
+    'footer';
   height: 100vh;
-}*/
+  overflow-x: hidden; // Prevent overflow scroll from hidden sidenav
+
+  &--noscroll {
+    overflow-y: hidden;
+  }
+}
 
 .header {
   grid-area: header;
@@ -80,8 +89,21 @@ a {
   justify-content: space-between;
   background-color: $color-catskill-white;
 
+  &__menu {
+    position: fixed; // Needs to stay visible for all mobile scrolling
+    padding: 13px;
+    left: 12px;
+    background-color: $color-mischka;
+    border-radius: 50%;
+    z-index: 1;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
   &__search {
-    margin: 0 20px;
+    margin-left: 55px;
     font-size: 20px;
     color: $color-abbey;
   }
@@ -103,8 +125,8 @@ a {
     @include profile-avatar;
     position: relative;
     margin: 0 26px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
 
     &:after {
@@ -181,13 +203,20 @@ a {
 }
 
 .sidenav {
+  position: fixed; // Access sidenav at any scroll position; relatively positioned on medium + screens
   grid-area: sidenav;
   height: 100%;
   overflow-y: auto;
   background-color: $color-fiord;
   color: $color-white;
+  width: $width-sidenav; // Will match grid area on medium + screens
+  transform: translateX(-245px);
+  transition: all .6s ease-in-out;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  z-index: 2; // Needs to sit above the hamburger menu icon
 
   &__brand {
+    position: relative;
     display: flex;
     align-items: center;
     padding: 0 16px;
@@ -198,6 +227,15 @@ a {
       margin-top: 2px;
       font-size: 14px;
       color: $color-transparent;
+    }
+
+    &-close {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      visibility: visible;
+      color: $color-transparent;
+      cursor: pointer;
     }
 
     &-link {
@@ -245,10 +283,14 @@ a {
     margin: 0;
     padding: 10px 0 0;
   }
+
+  &--active {
+    transform: translateX(0);
+  }
 }
 
 .navList {
-  width: 240px;
+  width: $width-sidenav;
   padding: 0;
   margin: 0;
   background-color: $color-fiord;
@@ -377,7 +419,7 @@ a {
     align-items: center;
     justify-content: space-between;
     height: 160px;
-    padding: 0 30px;
+    padding: 12px 30px;
     background: rgba(255,255,255,.12);
     font-size: 26px;
     letter-spacing: 1px;
@@ -417,6 +459,7 @@ a {
 
     &-description {
       font-size: 16px;
+      text-align: center;
     }
   }
 }
@@ -493,7 +536,6 @@ a {
 .card {
   display: flex;
   flex-direction: column;
-  // flex: 1;
   width: 100%;
   background-color: #fff;
   margin-bottom: 20px;
@@ -517,6 +559,7 @@ a {
       font-size: 16px;
       color: $color-java;
       letter-spacing: normal;
+      display: inline-block;
     }
   }
 
@@ -748,6 +791,7 @@ a {
   &__signature {
     color: $color-java;
     cursor: pointer;
+    font-weight: bold;
   }
 }
 
@@ -756,13 +800,43 @@ a {
   // Break out to sidenav grid layout on medium + screens
   .grid {
     display: grid;
-    grid-template-columns: 240px calc(100% - 240px); // Charts responsiveness won't work with fr units
-    grid-template-rows: $height-header 1fr 40px;
+    grid-template-columns: $width-sidenav calc(100% - 240px); // Charts responsiveness won't work with fr units
+    grid-template-rows: $height-header 1fr $height-footer;
     grid-template-areas:
       'sidenav header'
       'sidenav main'
       'sidenav footer';
     height: 100vh;
+  }
+
+  .sidenav {
+    position: relative;
+    transform: translateX(0);
+
+    &__brand-close {
+      visibility: hidden;
+    }
+  }
+
+  .main-header {
+    &__intro-wrapper {
+      padding: 0 30px;
+    }
+  }
+
+  .header {
+    &__menu {
+      display: none;
+    }
+
+    &__search {
+      margin-left: 20px; // No menu icon; move 'er back over
+    }
+
+    &__avatar {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
 
