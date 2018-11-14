@@ -197,13 +197,13 @@ a {
   .sidenav--active {
     transform: translateX(0); }
 
-.navList {
+.navlist {
   width: 240px;
   padding: 0;
   margin: 0;
   background-color: #394263;
   list-style-type: none; }
-  .navList__heading {
+  .navlist__heading {
     position: relative;
     display: flex;
     align-items: center;
@@ -212,22 +212,22 @@ a {
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     font-size: 15px; }
-  .navList__subheading {
+  .navlist__subheading {
     position: relative;
     padding: 10px 30px;
     color: #fff;
     font-size: 16px;
     text-transform: capitalize; }
-    .navList__subheading-icon {
+    .navlist__subheading-icon {
       display: flex;
       align-items: center;
       justify-content: center;
       font-size: 12px;
       color: rgba(255, 255, 255, 0.5);
       width: 12px; }
-    .navList__subheading-title {
+    .navlist__subheading-title {
       margin: 0 15px; }
-    .navList__subheading:after {
+    .navlist__subheading:after {
       position: absolute;
       content: "";
       height: 6px;
@@ -238,14 +238,14 @@ a {
       border-bottom: 1px solid rgba(255, 255, 255, 0.5);
       transform: rotate(225deg);
       transition: all .2s; }
-    .navList__subheading:hover {
+    .navlist__subheading:hover {
       background-color: #303753;
       cursor: pointer; }
-    .navList__subheading--open {
+    .navlist__subheading--open {
       background-color: #303753; }
-      .navList__subheading--open:after {
+      .navlist__subheading--open:after {
         transform: rotate(315deg); }
-  .navList .subList {
+  .navlist .sublist {
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -254,17 +254,17 @@ a {
     overflow: hidden;
     max-height: 200px;
     transition: all .4s ease-in-out; }
-    .navList .subList__item {
+    .navlist .sublist__item {
       padding: 8px;
       text-transform: capitalize;
       padding: 8px 30px;
       color: #D3D3D3; }
-      .navList .subList__item:first-child {
+      .navlist .sublist__item:first-child {
         padding-top: 15px; }
-      .navList .subList__item:hover {
+      .navlist .sublist__item:hover {
         background-color: rgba(255, 255, 255, 0.1);
         cursor: pointer; }
-    .navList .subList--hidden {
+    .navlist .sublist--hidden {
       visibility: hidden;
       max-height: 0; }
 
@@ -331,7 +331,7 @@ a {
   grid-gap: 30px;
   margin: 20px; }
 
-.overviewCard {
+.overviewcard {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -339,7 +339,7 @@ a {
   background-color: #FFF;
   transform: translateY(0);
   transition: all .3s; }
-  .overviewCard-icon {
+  .overviewcard-icon {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -348,26 +348,26 @@ a {
     border-radius: 50%;
     font-size: 21px;
     color: #fff; }
-    .overviewCard-icon--document {
+    .overviewcard-icon--document {
       background-color: #e67e22; }
-    .overviewCard-icon--calendar {
+    .overviewcard-icon--calendar {
       background-color: #27ae60; }
-    .overviewCard-icon--mail {
+    .overviewcard-icon--mail {
       background-color: #e74c3c; }
-    .overviewCard-icon--photo {
+    .overviewcard-icon--photo {
       background-color: #af64cc; }
-  .overviewCard-description {
+  .overviewcard-description {
     display: flex;
     flex-direction: column;
     align-items: center; }
-  .overviewCard-title {
+  .overviewcard-title {
     font-size: 18px;
     color: #1BBAE1;
     margin: 0; }
-  .overviewCard-subtitle {
+  .overviewcard-subtitle {
     margin: 2px;
     color: #777; }
-  .overviewCard:hover {
+  .overviewcard:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer; }

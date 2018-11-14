@@ -26,9 +26,9 @@ function setUserDropdownListener() {
 
 // Sidenav list sliding functionality
 function setSidenavListeners() {
-  const subHeadings = $('.navList__subheading'); console.log('subHeadings: ', subHeadings);
-  const SUBHEADING_OPEN_CLASS = 'navList__subheading--open';
-  const SUBLIST_HIDDEN_CLASS = 'subList--hidden';
+  const subHeadings = $('.navlist__subheading'); console.log('subHeadings: ', subHeadings);
+  const SUBHEADING_OPEN_CLASS = 'navlist__subheading--open';
+  const SUBLIST_HIDDEN_CLASS = 'sublist--hidden';
 
   subHeadings.each((i, subHeadingEl) => {
     $(subHeadingEl).on('click', (e) => {

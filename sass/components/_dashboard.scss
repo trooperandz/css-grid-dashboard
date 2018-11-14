@@ -66,7 +66,7 @@ a {
 
 // Establish dashboard css grid layout
 .grid {
-  position: relative;
+  position: relative; // For absolutely-positioned sidenav on mobile
   display: grid;
   grid-template-columns: 100%; // Charts responsiveness won't work with fr units
   grid-template-rows: $height-header 1fr $height-footer;
@@ -289,7 +289,7 @@ a {
   }
 }
 
-.navList {
+.navlist {
   width: $width-sidenav;
   padding: 0;
   margin: 0;
@@ -354,7 +354,7 @@ a {
     }
   }
 
-  .subList {
+  .sublist {
     padding: 0;
     margin: 0;
     list-style-type: none;
@@ -473,7 +473,7 @@ a {
   margin: 20px;
 }
 
-.overviewCard {
+.overviewcard {
   display: flex;
   align-items: center;
   justify-content: space-between;
